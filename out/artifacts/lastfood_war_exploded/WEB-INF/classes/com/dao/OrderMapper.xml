@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.OrderMapper">
+
+    <resultMap id="full_order" type="Order">
+        <id property="o_id" column="o_id"/>
+        <id property="o_no" column="o_no"/>
+        <result property="o_state" column="o_state"/>
+        <result property="o_time" column="o_time"/>
+        <result property="m_num" column="m_num"/>
+        <association property="menu" javaType="com.bean.Menu">
+            <id property="m_id" column="m_id"/>
+            <result property="m_name" column="m_name"/>
+            <result property="m_price" column="m_price"/>
+            <result property="m_imgname" column="m_imgname"/>
+        </association>
+        <association property="user" javaType="com.bean.User">
+            <id property="u_id" column="u_id"/>
+            <result property="u_fullname" column="u_fullname"/>
+            <result property="u_phone" column="u_phone"/>
+            <result property="u_address" column="u_address"/>
+        </association>
+    </resultMap>
+
+    <select id="getAllBySid" resultMap="full_order">
+        select o.o_id,o.o_no,o.o_time,o.o_state,o.m_num,m.*,u.*
+        from `order` o left join menu m on o.m_id=m.m_id
+        left join `user` u on  o.u_id=u.u_id
+        where o.s_id = #{0} order by o.o_time desc
+    </select>
+
+    <select id="getAllByUid" resultMap="full_order">
+        select o.o_id,o.o_no,o.o_time,o.o_state,o.m_num,m.*,u.*
+        from `order` o left join menu m on o.m_id=m.m_id
+        left join `user` u on  o.u_id=u.u_id
+        where o.u_id = #{0}  order by o.o_time desc
+    </select>
+
+    <select id="queryList" resultMap="full_order">
+        select o.o_id,o.o_no,o.o_time,o.o_state,o.m_num,m.*,u.*
+        from `order` o left join menu m on o.m_id=m.m_id
+        left join `user` u on  o.u_id=u.u_id
+        where o.s_id = #{1}
+        and (o.o_no like #{0}
+        or o.o_time like #{0}
+        or m.m_name like #{0}
+        or u.u_fullname like #{0}
+        or u.u_address like #{0})
+    </select>
+
+    <select id="userqueryList" resultMap="full_order">
+        select o.o_id,o.o_no,o.o_time,o.o_state,o.m_num,m.*,u.*
+        from `order` o left join menu m on o.m_id=m.m_id
+        left join `user` u on  o.u_id=u.u_id
+        where u.u_id = #{1}
+        and (o.o_no like #{0}
+        or o.o_time like #{0}
+        or m.m_name like #{0}
+        or u.u_address like #{0})
+    </select>
+
+    <update id="updOrderStatusByOid">
+        update `order` set o_state = 1 where o_id = #{0} ;
+    </update>
+
+    <insert id="addOrder" parameterType="Order">
+        insert into `order` (o_no,o_time,o_state,u_id,s_id,m_id,m_num)
+        values (#{o_no},#{o_time},#{o_state},#{user.u_id},#{store.s_id},#{menu.m_id},#{m_num})
+    </insert>
+
+</mapper>

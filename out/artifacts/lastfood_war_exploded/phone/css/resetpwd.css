@@ -1,0 +1,86 @@
+
+#app{
+    background: white;
+    height: 680px;
+}
+.resetpwd-title{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    height: 60px;
+    background: darkorange;
+    line-height: 60px;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
+.resetpwd-title a{
+    margin-left: 20px;
+    float: left;
+}
+
+.resetpwd-img{
+    padding-top: 120px;
+    text-align: center;
+}
+
+.resetpwd-content{
+    box-sizing: border-box;
+    width: 100%;
+    height: 250px;
+    /* background: gold; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 0 30px;
+}
+.resetpwd-content .resetpwd-name input{
+    width: 95%;
+    height: 50px;
+    font-size: 25px;
+    padding-left: 20px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    box-shadow: 0 2px 4px #ddd;
+
+}
+.resetpwd-content .resetpwd-pwd input{
+    width: 95%;
+    height: 50px;
+    font-size: 25px;
+    padding-left: 20px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    box-shadow: 0 2px 4px #ddd;
+    margin-top: 15px;
+}
+.resetpwd-content .resetpwd-rpwd input{
+    width: 95%;
+    height: 50px;
+    font-size: 25px;
+    padding-left: 20px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    box-shadow: 0 2px 4px #ddd;
+    margin-top: 15px;
+}
+.resetpwd-content .resetpwd-btn input{
+    width: 98%;
+    height: 50px;
+    font-size: 25px;
+    font-weight: 800;
+    color: white;
+    background: darkorange;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    margin-top: 15px;
+}

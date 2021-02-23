@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+	http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+    <!-- 在com.bean包下面的所有注解spring都可以扫描到，然后起作用 -->
+    <context:component-scan base-package="com.mail"></context:component-scan>
+
+    <bean class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <!-- qq邮件的服务器 -->
+        <property name="host" value="smtp.qq.com"></property>
+        <!-- qq邮件服务对应的端口号 -->
+        <property name="port" value="465"></property>
+
+        <!-- 写公司的邮箱 -->
+        <property name="username" value="1254708616@qq.com"></property>
+        <!-- 密码获取方式 授权码 -->
+        <property name="password" value="kuysqqetxkwhgdbd"></property>
+        <property name="javaMailProperties">
+            <props >
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.ssl.enable">true</prop>
+                <prop key="mail.transport.protocol">smtp</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>

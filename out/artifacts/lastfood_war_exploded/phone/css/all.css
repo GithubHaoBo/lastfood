@@ -1,0 +1,93 @@
+
+/* 搜索 */
+.search {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    height: 60px;
+    background: darkorange;
+}
+
+.search div{
+    flex: 1;
+    line-height: 60px;
+}
+
+.search div input {
+    width: 90%;
+    /* min-width: 42%;
+    max-width: 82%; */
+    height: 35px;
+    margin-left: 30px;
+    padding-left: 20px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    box-shadow: 0 2px 4px #666;
+}
+
+.search a{
+    box-sizing: border-box;
+    width: 60px;
+    height: 60px;
+    background: darkorange;
+    text-align: center;
+    padding-top: 15px;
+}
+.my-null-top {
+    height: 61px;
+}
+
+/* 底部 */
+.my-null-bottom{
+    height: 70px;
+}
+.nav{
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    height: 70px;
+    background: darkorange;
+}
+
+.nav ul{
+    display: flex;
+    width: 100%;
+}
+
+.nav ul li{
+    flex:1;
+}
+.nav ul li a{
+    display: flex;
+    /* 主轴Y周 */
+    flex-direction: column;
+    /* 侧首居中对齐 */
+    align-items: center;
+    color: white;
+}
+
+.nav ul li a .nav-ico{
+    margin-top: 5px;
+    width: 40px;
+    height: 40px;
+}
+.nav ul li:nth-child(1) a .nav-ico{
+    background: url(../imgmobile/home.png) no-repeat;
+}
+.nav ul li:nth-child(2) a .nav-ico{
+    background: url(../imgmobile/shopcart.png) no-repeat;
+}
+.nav ul li:nth-child(3) a .nav-ico{
+    background: url(../imgmobile/me.png) no-repeat;
+}

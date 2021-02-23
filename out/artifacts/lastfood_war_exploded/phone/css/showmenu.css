@@ -1,0 +1,128 @@
+#app{
+    background: white;
+    /*height: 680px;*/
+}
+.menu-title{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    height: 60px;
+    background: darkorange;
+    line-height: 60px;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
+.menu-title a{
+    margin-left: 20px;
+    float: left;
+}
+
+.menu-top{
+    margin: 20px 20px;
+    /*height: 320px;*/
+    display: flex;
+    flex-direction: row;
+    background: rgb(255, 245, 226);
+    border-radius: 10px;
+    box-shadow: 0 8px 8px #aaa;
+}
+
+
+.menu-top .menu-head{
+    box-sizing: border-box;
+    flex: 3;
+    /*padding: 20px 20px;*/
+    padding: 3% 3%;
+}
+
+.menu-top .menu-head img{
+    width: 100%;
+    height: 100%;
+}
+
+.menu-top .menu-msg{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.menu-top .menu-msg strong{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.menu-top .menu-msg span{
+    font-size:15px;
+    color: #666;
+}
+.menu-top .menu-msg button{
+    padding: 10px;
+    color: white;
+    border: 0;
+    font-size: 20px;
+    font-weight: 600;
+    background: darkorange;
+    border-radius: 5px;
+}
+
+.comment{
+    background: white;
+    padding: 10px 20px;
+}
+.comment b{
+    display: block;
+    margin-left: 10px;
+    font-size: 25px;
+    color: darkorange;
+    border-bottom: 5px double darkorange;
+    margin-bottom: 5px;
+}
+.othercomment .one-comment{
+    padding: 5px 20px;
+}
+.othercomment .one-comment table{
+    width: 100%;
+    color: #666;
+    font-size: 20px;
+}
+.othercomment .one-comment table .comment-td{
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #aaa;
+}
+
+.othercomment .one-comment table .comment-content{
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #999;
+    height: 45px;
+    padding: 0px 10px;
+    box-sizing: border-box;
+}
+
+.othercomment .one-comment table span{
+    display: block;
+    text-align: right;
+}
+
+.mycomment .content{
+    padding: 5px 20px 40px;
+}
+
+.mycomment .content textarea{
+    width: 100%;
+    border-radius: 5px;
+}
+
+.mycomment .content input{
+    float: right;
+    background: darkorange;
+    border: 2px solid #ddd;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    color: white;
+}
