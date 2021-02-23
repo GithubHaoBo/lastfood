@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.StoreMapper">
+
+    <select id="login" resultType="Store">
+         select * from store where s_loginname=#{0} and s_password=#{1}
+    </select>
+
+    <insert id="register" parameterType="Store">
+        insert into store (s_loginname,s_fullname,s_email,s_password)
+        values (#{s_loginname},#{s_fullname},#{s_email},#{s_password})
+    </insert>
+
+    <select id="getStoreBySid" resultType="Store">
+         select * from store where s_id=#{0}
+    </select>
+
+    <update id="updStoreBySid" parameterType="Store">
+        update store set s_age = #{s_age},s_phone = #{s_phone},s_fullname = #{s_fullname}, s_email = #{s_email},
+              s_shopname = #{s_shopname},s_desc = #{s_desc},s_address = #{s_address} where s_id = #{s_id}
+    </update>
+
+    <update id="updStorePasswordByLoginname">
+        update store set s_password = #{0} where s_loginname = #{1}
+    </update>
+
+    <select id="getStoreByLoginname" resultType="Store">
+        select * from store where s_loginname = #{0}
+    </select>
+
+    <select id="getStoreByLoginnameAndFullname" resultType="Store">
+        select * from store where s_loginname = #{0} and s_fullname = #{1}
+    </select>
+
+    <select id="getStoreByShopName" resultType="Store">
+        select  * from store where s_shopname like #{0}
+    </select>
+
+
+</mapper>

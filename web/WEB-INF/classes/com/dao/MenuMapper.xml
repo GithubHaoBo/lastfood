@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.MenuMapper">
+
+    <!--后台-->
+    <resultMap id="menu_type" type="Menu">
+        <id property="m_id" column="m_id"/>
+        <result property="m_name" column="m_name"/>
+        <result property="m_burden" column="m_burden"/>
+        <result property="m_desc" column="m_desc"/>
+        <result property="m_price" column="m_price"/>
+        <result property="m_sales" column="m_sales"/>
+        <result property="m_imgname" column="m_imgname"/>
+        <result property="s_id" column="s_id"/>
+        <result property="ca_id" column="ca_id"/>
+        <association property="category" javaType="com.bean.Category">
+            <id property="c_id" column="c_id"/>
+            <result property="c_name" column="c_name"/>
+            <!--<result property="c_createdate" column="c_createdate"/>-->
+        </association>
+    </resultMap>
+
+    <select id="getAllBySid" resultMap="menu_type">
+         select m.*,c.c_id,c.c_name from menu m left join category c on m.ca_id = c.c_id where m.s_id = #{0}
+    </select>
+
+    <select id="getMenuByMid" resultMap="menu_type">
+        select m.*,c.c_id,c.c_name from menu m left join category c on m.ca_id = c.c_id where m.m_id = #{0}
+    </select>
+
+    <select id="queryList" resultMap="menu_type">
+        select m.*,c.c_id,c.c_name from menu m left join category c on m.ca_id = c.c_id where m.s_id = #{1} and m.m_name like #{0} or c.c_name like #{0}
+    </select>
+
+    <insert id="addMenu" parameterType="Menu">
+        insert into menu (m_name,m_burden,m_desc,m_price,m_sales,m_imgname,s_id,ca_id)
+        values (#{m_name},#{m_burden},#{m_desc},#{m_price},#{m_sales},#{m_imgname},#{s_id},#{ca_id})
+    </insert>
+
+    <update id="updMenuByMid" parameterType="Menu">
+        update menu set m_name = #{m_name},m_burden = #{m_burden},m_desc = #{m_desc},m_price= #{m_price},m_sales= #{m_sales},
+        m_imgname= #{m_imgname},s_id= #{s_id},ca_id= #{ca_id} where m_id = #{m_id}
+    </update>
+    
+    <delete id="delByMid">
+        delete from menu where m_id = #{0}
+    </delete>
+
+
+    <!--前台-->
+    <resultMap id="menu_type_store" type="Menu">
+        <id property="m_id" column="m_id"/>
+        <result property="m_name" column="m_name"/>
+        <result property="m_burden" column="m_burden"/>
+        <result property="m_desc" column="m_desc"/>
+        <result property="m_price" column="m_price"/>
+        <result property="m_sales" column="m_sales"/>
+        <result property="m_imgname" column="m_imgname"/>
+        <!--<result property="s_id" column="s_id"/>-->
+        <!--<result property="ca_id" column="ca_id"/>-->
+        <association property="category" javaType="com.bean.Category">
+            <id property="c_id" column="c_id"/>
+            <result property="c_name" column="c_name"/>
+        </association>
+        <association property="store" javaType="com.bean.Store">
+            <id property="s_id" column="s_id"/>
+            <result property="s_shopname" column="s_shopname"/>
+        </association>
+    </resultMap>
+
+    <select id="getAllStoreMenu" resultMap="menu_type_store">
+        select m.m_id,m.m_name,m_burden,m.m_desc,m.m_price,m.m_sales,m.m_imgname,
+        c.c_id,c.c_name,s.s_id,s.s_shopname
+        from menu m left join `category` c on m.ca_id = c.c_id
+        left join store s on m.s_id = s.s_id
+    </select>
+
+    <select id="getAllStoreMenuByName" resultMap="menu_type_store">
+        select m.m_id,m.m_name,m_burden,m.m_desc,m.m_price,m.m_sales,m.m_imgname,
+        c.c_id,c.c_name,s.s_id,s.s_shopname
+        from menu m left join `category` c on m.ca_id = c.c_id
+        left join store s on m.s_id = s.s_id
+        where m.m_name like #{0} or c.c_name like #{0}
+    </select>
+
+    <select id="getAllStoreMenuBySid" resultMap="menu_type_store">
+        select m.m_id,m.m_name,m_burden,m.m_desc,m.m_price,m.m_sales,m.m_imgname,
+        c.c_id,c.c_name,s.s_id,s.s_shopname
+        from menu m left join `category` c on m.ca_id = c.c_id
+        left join store s on m.s_id = s.s_id
+        where s.s_id = #{0}
+    </select>
+
+
+
+    <select id="getAllStoreMenuOrderBySales" resultMap="menu_type_store">
+        select m.m_id,m.m_name,m_burden,m.m_desc,m.m_price,m.m_sales,m.m_imgname,
+        c.c_id,c.c_name,s.s_id,s.s_shopname
+        from menu m left join `category` c on m.ca_id = c.c_id
+        left join store s on m.s_id = s.s_id
+        order by m.m_sales desc limit 8
+    </select>
+
+    <update id="updMenuSalesByMid">
+        update menu set m_sales = #{1} + m_sales where m_id = #{0}
+    </update>
+
+</mapper>

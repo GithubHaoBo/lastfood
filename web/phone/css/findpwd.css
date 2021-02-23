@@ -1,0 +1,74 @@
+
+#app{
+    background: white;
+    height: 680px;
+}
+.findpwd-title{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    height: 60px;
+    background: darkorange;
+    line-height: 60px;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
+.findpwd-title a{
+    margin-left: 20px;
+    float: left;
+}
+
+.findpwd-img{
+    padding-top: 120px;
+    text-align: center;
+}
+
+.findpwd-content{
+    box-sizing: border-box;
+    width: 100%;
+    height: 250px;
+    /* background: gold; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 0 30px;
+}
+.findpwd-content .findpwd-name input{
+    width: 95%;
+    height: 50px;
+    font-size: 25px;
+    padding-left: 20px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    box-shadow: 0 2px 4px #ddd;
+}
+.findpwd-content .findpwd-card input{
+    width: 95%;
+    height: 50px;
+    font-size: 25px;
+    padding-left: 20px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    box-shadow: 0 2px 4px #ddd;
+    margin-top: 15px;
+}
+.findpwd-content .findpwd-btn input{
+    width: 98%;
+    height: 50px;
+    font-size: 25px;
+    font-weight: 800;
+    color: white;
+    background: darkorange;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    margin-top: 15px;
+}

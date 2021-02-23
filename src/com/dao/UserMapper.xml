@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.UserMapper">
+
+    <select id="login" resultType="User">
+         select * from user where u_loginname=#{0} and u_password=#{1}
+    </select>
+
+    <insert id="register" parameterType="User">
+        insert into user (u_loginname,u_password,u_phone,u_fullname,u_sex,u_age,u_email,u_address,u_card,u_code)
+        values (#{u_loginname},#{u_password},#{u_phone},#{u_fullname},#{u_sex},#{u_age},#{u_email},#{u_address},#{u_card},#{u_code})
+    </insert>
+
+    <select id="getUserByLoginname" resultType="com.bean.User">
+        select * from user where s_loginname = #{0}
+    </select>
+
+    <update id="updUserByUid" parameterType="User">
+        update `user` set u_phone=#{u_phone},u_fullname=#{u_fullname},u_age=#{u_age},u_email=#{u_email},
+        u_address=#{u_address},u_card=#{u_card},u_code=#{u_code}
+        where u_id = #{u_id}
+    </update>
+
+    <update id="updUserPasswordByUid">
+        update `user` set u_password=#{0}
+        where u_id = #{1}
+    </update>
+
+    <select id="getUserByUid" resultType="User">
+         select * from user where u_id = #{0}
+    </select>
+
+    <select id="getUserByLoginNameAndCard" resultType="com.bean.User">
+        select * from user where u_loginname = #{0} and u_card=#{1}
+    </select>
+
+
+</mapper>

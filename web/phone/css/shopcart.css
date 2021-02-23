@@ -1,0 +1,66 @@
+#app{
+    background: white;
+    height: 680px;
+}
+.shopcart-title{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    height: 60px;
+    background: darkorange;
+    line-height: 60px;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
+.shopcart-title a{
+    margin-left: 20px;
+    float: left;
+}
+
+.shop-content{
+    box-sizing: border-box;
+    margin: 20px 10px;
+}
+
+table{
+    width: 100%;
+    text-align: center;
+    border-radius: 10px;
+    background: rgb(226, 239, 255);
+    line-height: 40px;
+    border-spacing: 0;
+}
+
+table img{
+    width: 40px;
+    height: 40px;
+}
+
+.handle{
+    display: flex;
+    position: fixed;
+    bottom: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    height: 40px;
+}
+
+.handle a{
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 10%;
+    flex: 1;
+    text-align: center;
+    border-radius: 30px;
+    background: red;
+    line-height: 40px;
+}

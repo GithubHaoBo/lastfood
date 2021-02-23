@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.PinglunMapper">
+
+    <resultMap id="ping_user" type="Pinglun">
+        <id property="p_id" column="p_id"/>
+        <result property="p_content" column="p_content"/>
+        <result property="p_time" column="p_time"/>
+        <result property="m_id" column="m_id"/>
+        <association property="user" javaType="com.bean.User">
+            <id property="u_id" column="u_id"/>
+            <result property="u_loginname" column="u_loginname"/>
+            <result property="u_phone" column="u_phone"/>
+        </association>
+    </resultMap>
+
+    <select id="getPinglunByMid" resultMap="ping_user">
+        select p.p_id,p.p_content,p.p_time,p.m_id,u.*
+         from pinglun p left  join user u on p.u_id=u.u_id
+         where p.m_id = #{0}
+    </select>
+
+    <resultMap id="ping_user_menu" type="Pinglun">
+        <id property="p_id" column="p_id"/>
+        <result property="p_content" column="p_content"/>
+        <result property="p_time" column="p_time"/>
+        <result property="m_id" column="m_id"/>
+        <association property="user" javaType="com.bean.User">
+            <id property="u_id" column="u_id"/>
+            <result property="u_fullname" column="u_fullname"/>
+            <result property="u_phone" column="u_phone"/>
+        </association>
+        <association property="menu" javaType="com.bean.Menu">
+            <id property="m_id" column="m_id"/>
+            <result property="m_name" column="m_name"/>
+        </association>
+    </resultMap>
+
+    <select id="getPinglunByStore" resultMap="ping_user_menu">
+        select p.p_id,p.p_content,p.p_time,u.*,m.*
+        from pinglun p left  join user u on p.u_id=u.u_id
+        left join menu m on p.m_id = m.m_id
+         where p.m_id in
+        <foreach collection="listMid" item="id" index="index" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+    <select id="querylistByStore" resultMap="ping_user_menu">
+        select p.p_id,p.p_content,p.p_time,u.*,m.*
+        from pinglun p left  join user u on p.u_id=u.u_id
+        left join menu m on p.m_id = m.m_id
+        where (m.m_name like #{1} or p.p_time like #{1})
+        and p.m_id in
+        <foreach collection="listMid" item="id" index="index" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+
+    <insert id="addPinglun" parameterType="Pinglun">
+        insert into pinglun (p_content,p_time,u_id,m_id) values (#{p_content},#{p_time},#{user.u_id},#{m_id});
+    </insert>
+
+</mapper>

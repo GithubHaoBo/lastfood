@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.NoticeMapper">
+
+    <select id="getAllBySid" resultType="Notice">
+         select * from notice where s_id = #{0}
+    </select>
+
+    <select id="getNoticeByNid" resultType="Notice">
+        select * from notice where n_id = #{0}
+    </select>
+
+    <select id="queryList" resultType="Notice">
+         select * from notice where s_id = #{1} and n_title like #{0} or n_content like #{0}
+    </select>
+
+    <insert id="addNotice" parameterType="Notice">
+        insert into notice (n_title,n_content,n_time,n_imgname,s_id)
+        values(#{n_title},#{n_content},#{n_time},#{n_imgname},#{s_id})
+    </insert>
+
+    <update id="updNoticeByNid" parameterType="Notice">
+        update notice set n_title = #{n_title},n_content =#{n_content},n_time = #{n_time},n_imgname = #{n_imgname}
+        where n_id = #{n_id}
+    </update>
+
+    <delete id="delByNid">
+        delete from notice where n_id = #{0}
+    </delete>
+
+
+    <select id="getAllStoreNotic" resultType="com.bean.Notice">
+        select * from notice order by n_time desc limit 5
+    </select>
+
+</mapper>

@@ -1,0 +1,109 @@
+#app{
+    background: white;
+}
+.order-title{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    height: 60px;
+    background: darkorange;
+    line-height: 60px;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
+.order-title a{
+    margin-left: 20px;
+    float: left;
+}
+
+.search-order{
+    display: flex;
+    width: 100%;
+    height: 60px;
+    /* background: darksalmon; */
+}
+.search-order div{
+    flex: 1;
+    line-height: 60px;
+}
+
+.search-order div input {
+    width: 90%;
+    height: 40px;
+    margin-left: 30px;
+    padding-left: 20px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    box-shadow: 0 2px 4px #666;
+}
+
+.search-order a{
+    box-sizing: border-box;
+    width: 60px;
+    height: 60px;
+    background: darkorange;
+    text-align: center;
+    padding-top: 15px;
+    border-radius: 50%;
+}
+
+.order-card{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 20px;
+    padding: 10px 30px;
+    /*height: 280px;*/
+    background: rgba(255, 239, 218, 0.281);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #aaa;
+}
+
+/* 订单号，时间 */
+.order-card .order-no{
+    flex: 1;
+}
+.order-card .order-time{
+    flex: 1;
+    text-align: right;
+}
+
+
+.order-card .order-middle{
+    flex: 6;
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+}
+.order-card .order-middle .order-head{
+    flex: 2;
+    margin: 10px;
+    width: 200px;
+    height: 200px;
+}
+
+.order-card .order-middle .order-head img{
+    width: 100%;
+    height: 100%;
+}
+
+.order-card .order-middle .order-msg{
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 10px;
+}
+.order-card .order-middle .order-msg b{
+    text-align: right;
+    color: darkorange;
+}
+.order-card .order-middle .order-msg strong{
+    font-size: 20px;
+}

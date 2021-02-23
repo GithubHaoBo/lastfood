@@ -1,0 +1,84 @@
+
+#app{
+    background: #eee;
+    height: 680px;
+}
+.aboutme-title{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    height: 60px;
+    background: darkorange;
+    line-height: 60px;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
+.aboutme-title a{
+    margin-left: 20px;
+    float: left;
+}
+
+.aboutme-top{
+    margin: 20px 40px;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 8px #aaa;
+}
+
+.aboutme-top .user-head{
+    box-sizing: border-box;
+    flex: 2;
+    /*padding: 20px 60px;*/
+    padding: 3% 6%;
+}
+
+.aboutme-top .user-head img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.aboutme-top .user-name{
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.aboutme-top .user-name strong{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.aboutme-top .user-name span{
+    font-size:15px;
+    color: #666;
+}
+.domain{
+    background: white;
+    padding: 10px 40px;
+}
+.domain a{
+    display: block;
+    width: 100%;
+    padding: 10px;
+}
+.domain a:nth-child(-n+3){
+    border-bottom: 1px solid #ddd;
+}
+.domain a img{
+    vertical-align: middle;
+}
+.domain a i{
+    float: right;
+}
+.domain a span{
+    margin-left: 10px;
+    font-size: 20px;
+}

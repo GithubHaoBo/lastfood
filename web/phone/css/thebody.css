@@ -1,0 +1,29 @@
+body {
+    /* 设置宽度撑满 */
+    width: 100%;
+    /* 设置屏幕大小 */
+    min-width: 320px;
+    max-width: 640px;
+    /* 设置居中 */
+    margin: 0 auto;
+    /* X溢出隐藏 */
+    overflow-x: hidden;
+    /* 字体设置 */
+    font: 400 16px/1.5 PingFangSC-regular, Tahoma, "Lucida Grande", Verdana, "Microsoft Yahei", STXihei, hei;
+    /* 字体颜色 */
+    color: #000;
+    background-color: #ddd;
+    /* 取消手机端高亮显示 */
+    -webkit-tap-highlight-color: transparent;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: gray;
+}

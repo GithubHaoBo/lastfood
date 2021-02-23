@@ -1,0 +1,79 @@
+
+#app{
+    background: white;
+}
+.editme-title{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    height: 60px;
+    background: darkorange;
+    line-height: 60px;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
+
+.editme-title a{
+    margin-left: 20px;
+    float: left;
+}
+
+.editme-img{
+    padding-top: 80px;
+    text-align: center;
+}
+.editme-content{
+    box-sizing: border-box;
+    width: 100%;
+    /* height: 750px; */
+    /* background: gold; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 0 30px;
+}
+.editme-content .editme-loginname input,
+.editme-content .editme-fullname input,
+.editme-content .editme-age input,
+.editme-content .editme-card input,
+.editme-content .editme-addr input,
+.editme-content .editme-phone input,
+.editme-content .editme-email input,
+.editme-content .editme-code input{
+    width: 95%;
+    height: 50px;
+    font-size: 25px;
+    padding-left: 20px;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    outline: none;
+    margin-bottom: 2px;
+}
+.editme-content .editme-sex{
+    text-align: center;
+    font-size: 30px;
+    height: 50px;
+    line-height: 50px;
+}
+.editme-content .editme-sex input{
+    width: 20%;
+    height: 30px;
+}
+.editme-content .editme-btn input{
+    margin: 10px 0;
+    width: 98%;
+    height: 50px;
+    font-size: 25px;
+    font-weight: 800;
+    color: white;
+    background: darkorange;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+}
